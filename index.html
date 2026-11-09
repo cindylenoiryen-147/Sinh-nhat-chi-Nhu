@@ -1,0 +1,339 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>HAPPY B-DAY chị Như!!</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Playfair+Display:ital,wght@1,600;1,800&display=swap">
+<style>
+  /* Layout: một cột thiệp ở giữa, vườn hoa canvas cố định phía sau, bánh kem là điểm tương tác chính */
+  :root {
+    --deep: #0a2a5e;
+    --sea: #1565c0;
+    --wave: #4aa3e8;
+    --foam: #eaf5ff;
+    --sun: #ffd56b;
+    --blush: #ffc9d9;
+    --glass: rgba(255, 255, 255, 0.10);
+    --glass-line: rgba(255, 255, 255, 0.28);
+    --font-display: "Playfair Display", "Times New Roman", serif;
+    --font-body: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { min-height: 100%; }
+  body {
+    margin: 0;
+    background: var(--deep);
+    background-image:
+      radial-gradient(900px 500px at 15% -10%, rgba(74, 163, 232, 0.55), transparent 70%),
+      radial-gradient(800px 500px at 100% 20%, rgba(21, 101, 192, 0.65), transparent 70%),
+      linear-gradient(180deg, #0d3b86 0%, #0a2a5e 55%, #071d44 100%);
+    background-attachment: fixed;
+    color: var(--foam);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    padding-block: 40px 120px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    overflow-x: hidden;
+  }
+  #garden { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+  main { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 36px; }
+  .eyebrow { margin: 0; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sun); font-weight: 600; text-align: center; }
+  h1 {
+    margin: 8px 0 0; text-align: center; font-family: var(--font-display); font-style: italic; font-weight: 800;
+    font-size: clamp(2.2rem, 8vw, 3.8rem); line-height: 1.12; text-wrap: balance;
+  }
+  h1 .who { color: var(--sun); overflow-wrap: anywhere; }
+  .lead { margin: 12px auto 0; text-align: center; max-width: 46ch; color: rgba(234, 245, 255, 0.85); }
+  .namebox { display: flex; gap: 10px; align-items: center; justify-content: center; flex-wrap: wrap; margin-top: 18px; }
+  .namebox label { font-size: 13px; color: rgba(234, 245, 255, 0.8); }
+  input[type="text"] {
+    font: inherit; color: var(--foam); background: var(--glass); border: 1px solid var(--glass-line);
+    border-radius: 999px; padding: 10px 18px; width: min(100%, 260px); text-align: center;
+  }
+  input[type="text"]::placeholder { color: rgba(234, 245, 255, 0.55); }
+  :focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
+
+  .cake-wrap { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  svg.cake { width: min(100%, 380px); height: auto; overflow: visible; }
+  .candle { cursor: pointer; }
+  .flame { transform-box: fill-box; transform-origin: 50% 100%; animation: flicker 0.9s ease-in-out infinite alternate; transition: opacity 0.35s, transform 0.35s; }
+  .flame.out { opacity: 0; transform: scale(0.2); animation: none; }
+  .glow { transition: opacity 0.35s; }
+  .flame.out + .glow { opacity: 0; }
+  @keyframes flicker { from { transform: scale(1, 1) rotate(-3deg); } to { transform: scale(0.92, 1.1) rotate(3deg); } }
+  .status { margin: 0; font-size: 14px; color: rgba(234, 245, 255, 0.85); min-height: 1.6em; text-align: center; }
+  button {
+    font: inherit; font-weight: 600; cursor: pointer; border: 0; border-radius: 999px;
+    padding: 12px 26px; background: var(--sun); color: #3a2a00; transition: transform 0.15s, filter 0.15s;
+  }
+  button:hover { filter: brightness(1.06); }
+  button:active { transform: scale(0.97); }
+
+  .blessing {
+    background: var(--glass); border: 1px solid var(--glass-line); border-radius: 20px;
+    padding: 24px; text-align: center; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    animation: rise 0.6s ease-out both;
+  }
+  .blessing h2 { margin: 0 0 8px; font-family: var(--font-display); font-style: italic; font-size: 1.6rem; }
+  .blessing p { margin: 0; overflow-wrap: anywhere; }
+
+  .wishes h2 { margin: 0 0 14px; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sun); font-weight: 600; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; }
+  .wish {
+    min-width: 0; text-align: left; background: var(--glass); color: var(--foam); border: 1px solid var(--glass-line);
+    border-radius: 16px; padding: 18px; min-height: 120px; display: flex; flex-direction: column; justify-content: space-between; gap: 10px; font-weight: 500;
+  }
+  .wish:hover { background: rgba(255, 255, 255, 0.16); filter: none; }
+  .wish .hint { font-size: 12px; color: rgba(234, 245, 255, 0.7); }
+  .wish .txt { display: none; }
+  .wish.open .txt { display: block; animation: rise 0.4s ease-out both; }
+  .wish.open .front { display: none; }
+  .wish svg { width: 34px; height: 34px; }
+  .foot { text-align: center; font-size: 13px; color: rgba(234, 245, 255, 0.7); margin: 0; }
+  @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    .flame { animation: none; }
+    .blessing, .wish.open .txt { animation: none; }
+  }
+</style>
+
+<canvas id="garden" aria-hidden="true"></canvas>
+<main>
+  <header>
+    <p class="eyebrow">Thiệp sinh nhật</p>
+    <h1>Chúc mừng sinh nhật, <span class="who" id="who">chị Ngọc</span>!</h1>
+    <p class="lead">Chạm vào bất kỳ chỗ nào trên nền để trồng hoa, rồi thổi tắt nến trên bánh để mở lời chúc.</p>
+    <div class="namebox">
+      <label for="name">Háp pi bớt đê chị Như dấu iuu</label>
+      <input type="text" id="name" maxlength="24" placeholder="Gửi người đệp" autocomplete="off">
+    </div>
+  </header>
+
+  <section class="cake-wrap" aria-label="Bánh sinh nhật">
+    <svg class="cake" viewBox="0 0 320 270" role="img" aria-label="Bánh kem sinh nhật có năm cây nến">
+      <ellipse cx="160" cy="246" rx="140" ry="16" fill="#071d44" opacity="0.55"/>
+      <ellipse cx="160" cy="238" rx="138" ry="16" fill="#cfe8ff"/>
+      <rect x="40" y="170" width="240" height="68" rx="14" fill="#eaf5ff"/>
+      <rect x="40" y="206" width="240" height="14" fill="#8ec9f5"/>
+      <rect x="76" y="110" width="168" height="66" rx="12" fill="#4aa3e8"/>
+      <path d="M76 124 q12 22 24 0 q12 22 24 0 q12 22 24 0 q12 22 24 0 q12 22 24 0 q12 22 24 0 q12 22 24 0 v-6 q0 -8 -8 -8 H84 q-8 0 -8 8z" fill="#ffffff"/>
+      <path d="M40 184 q14 24 28 0 q14 24 28 0 q14 24 28 0 q14 24 28 0 q14 24 28 0 q14 24 28 0 q14 24 28 0 q14 24 28 0 v-6 q0 -8 -8 -8 H48 q-8 0 -8 8z" fill="#ffffff"/>
+      <g fill="#ffd56b">
+        <circle cx="110" cy="152" r="5"/><circle cx="160" cy="156" r="5"/><circle cx="210" cy="152" r="5"/>
+      </g>
+      <g id="candles">
+        <g class="candle" data-i="0"><rect x="97" y="76" width="9" height="40" rx="2" fill="#ffffff"/><rect x="97" y="86" width="9" height="5" fill="#ffd56b"/><rect x="97" y="98" width="9" height="5" fill="#ffd56b"/><path class="flame" d="M101.5 50 C95 60 95 72 101.5 74 C108 72 108 60 101.5 50z" fill="#ffc53d"/><circle class="glow" cx="101.5" cy="64" r="16" fill="#ffd56b" opacity="0.22"/></g>
+        <g class="candle" data-i="1"><rect x="129" y="68" width="9" height="46" rx="2" fill="#ffd2e1"/><rect x="129" y="80" width="9" height="5" fill="#ffffff"/><rect x="129" y="94" width="9" height="5" fill="#ffffff"/><path class="flame" d="M133.5 42 C127 52 127 64 133.5 66 C140 64 140 52 133.5 42z" fill="#ffc53d"/><circle class="glow" cx="133.5" cy="56" r="16" fill="#ffd56b" opacity="0.22"/></g>
+        <g class="candle" data-i="2"><rect x="156" y="62" width="9" height="52" rx="2" fill="#ffffff"/><rect x="156" y="74" width="9" height="5" fill="#4aa3e8"/><rect x="156" y="90" width="9" height="5" fill="#4aa3e8"/><path class="flame" d="M160.5 36 C154 46 154 58 160.5 60 C167 58 167 46 160.5 36z" fill="#ffc53d"/><circle class="glow" cx="160.5" cy="50" r="16" fill="#ffd56b" opacity="0.22"/></g>
+        <g class="candle" data-i="3"><rect x="187" y="68" width="9" height="46" rx="2" fill="#ffd2e1"/><rect x="187" y="80" width="9" height="5" fill="#ffffff"/><rect x="187" y="94" width="9" height="5" fill="#ffffff"/><path class="flame" d="M191.5 42 C185 52 185 64 191.5 66 C198 64 198 52 191.5 42z" fill="#ffc53d"/><circle class="glow" cx="191.5" cy="56" r="16" fill="#ffd56b" opacity="0.22"/></g>
+        <g class="candle" data-i="4"><rect x="219" y="76" width="9" height="40" rx="2" fill="#ffffff"/><rect x="219" y="86" width="9" height="5" fill="#ffd56b"/><rect x="219" y="98" width="9" height="5" fill="#ffd56b"/><path class="flame" d="M223.5 50 C217 60 217 72 223.5 74 C230 72 230 60 223.5 50z" fill="#ffc53d"/><circle class="glow" cx="223.5" cy="64" r="16" fill="#ffd56b" opacity="0.22"/></g>
+      </g>
+    </svg>
+    <p class="status" id="status" aria-live="polite">Bùng lổ nàoo</p>
+    <button type="button" id="blow">Thổi nến</button>
+  </section>
+
+  <section class="blessing" id="blessing" hidden>
+    <h2>Chúc chị Ngọc của năm 23 thật bùng lổ và hạnh phúc!!</h2>
+    <p id="msg"></p>
+  </section>
+
+  <section class="wishes">
+    <h2>Ba lời chúc nho nhỏa</h2>
+    <div class="cards">
+      <button type="button" class="wish" aria-pressed="false">
+        <span class="front"><svg viewBox="0 0 40 40" aria-hidden="true"><g fill="#fff"><ellipse cx="20" cy="9" rx="5" ry="8"/><ellipse cx="20" cy="31" rx="5" ry="8"/><ellipse cx="9" cy="20" rx="8" ry="5"/><ellipse cx="31" cy="20" rx="8" ry="5"/></g><circle cx="20" cy="20" r="5" fill="#ffd56b"/></svg></span>
+        <span class="txt">Công việc thuận lợi, tránh được cạp nong cạp nia ở chỗ làm kkk</span>
+        <span class="hint front">Chạm để mở lời chúc</span>
+      </button>
+      <button type="button" class="wish" aria-pressed="false">
+        <span class="front"><svg viewBox="0 0 40 40" aria-hidden="true"><g fill="#bfe3ff"><ellipse cx="20" cy="9" rx="5" ry="8"/><ellipse cx="20" cy="31" rx="5" ry="8"/><ellipse cx="9" cy="20" rx="8" ry="5"/><ellipse cx="31" cy="20" rx="8" ry="5"/></g><circle cx="20" cy="20" r="5" fill="#ffd56b"/></svg></span>
+        <span class="txt">Mỗi ngày đều có một gì đó khiến chị Ngọc iu dấu mỉm cười, chúc chị luôn siu bá khí kkk</span>
+        <span class="hint front">Chạm để mở lời chúc</span>
+      </button>
+      <button type="button" class="wish" aria-pressed="false">
+        <span class="front"><svg viewBox="0 0 40 40" aria-hidden="true"><g fill="#ffc9d9"><ellipse cx="20" cy="9" rx="5" ry="8"/><ellipse cx="20" cy="31" rx="5" ry="8"/><ellipse cx="9" cy="20" rx="8" ry="5"/><ellipse cx="31" cy="20" rx="8" ry="5"/></g><circle cx="20" cy="20" r="5" fill="#ffd56b"/></svg></span>
+        <span class="txt">Mọi dự định ở tuổi mới đều lần lượt thành công và siuuuu bùng lổ!!</span>
+        <span class="hint front">Chạm để mở lời chúc</span>
+      </button>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cv = document.getElementById('garden');
+  var ctx = cv.getContext('2d');
+  var W = 0, H = 0;
+  var flowers = [], confetti = [];
+  var COLORS = ['#ffffff', '#bfe3ff', '#ffd2e1', '#fff1b8', '#9fd0ff'];
+  var CONF = ['#ffffff', '#ffd56b', '#4aa3e8', '#bfe3ff', '#ffc9d9'];
+
+  function resize() {
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = window.innerWidth; H = window.innerHeight;
+    cv.width = W * dpr; cv.height = H * dpr;
+    cv.style.width = W + 'px'; cv.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function addFlower(x, y, delay) {
+    var f = {
+      x: x, y: y, r: 16 + Math.random() * 16,
+      n: 5 + Math.floor(Math.random() * 4),
+      color: COLORS[Math.floor(Math.random() * COLORS.length)],
+      lean: (Math.random() - 0.5) * 50,
+      stem: Math.max(60, H - y + 10),
+      ph: Math.random() * 6.28,
+      t0: performance.now() + (delay || 0),
+      dur: reduce ? 1 : 900 + Math.random() * 500
+    };
+    flowers.push(f);
+    if (flowers.length > 70) flowers.shift();
+  }
+
+  function ease(p) { return 1 - Math.pow(1 - p, 3); }
+
+  function drawFlower(f, t) {
+    var p = (t - f.t0) / f.dur;
+    if (p <= 0) return;
+    p = ease(Math.min(p, 1));
+    var bx = f.x + f.lean, by = f.y + f.stem;
+    var hx = bx + (f.x - bx) * p, hy = by + (f.y - by) * p;
+    ctx.strokeStyle = '#7fd0a0'; ctx.lineWidth = 3; ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.moveTo(bx, by);
+    ctx.quadraticCurveTo(bx + (hx - bx) * 0.1, by + (hy - by) * 0.55, hx, hy);
+    ctx.stroke();
+    var sway = reduce ? 0 : Math.sin(t / 900 + f.ph) * 0.06;
+    var r = f.r * p;
+    ctx.save();
+    ctx.translate(hx, hy); ctx.rotate(sway + p * 0.6);
+    ctx.globalAlpha = 0.95;
+    ctx.fillStyle = f.color;
+    for (var layer = 0; layer < 2; layer++) {
+      for (var i = 0; i < f.n; i++) {
+        ctx.save();
+        ctx.rotate((i / f.n) * Math.PI * 2 + layer * (Math.PI / f.n));
+        ctx.beginPath();
+        ctx.ellipse(0, -r * 0.62, r * (layer ? 0.24 : 0.3), r * (layer ? 0.46 : 0.55), 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = '#ffc53d';
+    ctx.beginPath(); ctx.arc(0, 0, r * 0.26, 0, Math.PI * 2); ctx.fill();
+    ctx.restore();
+  }
+
+  function burst(x, y, n) {
+    for (var i = 0; i < n; i++) {
+      var a = Math.random() * Math.PI * 2, s = 3 + Math.random() * 7;
+      confetti.push({
+        x: x, y: y, vx: Math.cos(a) * s, vy: Math.sin(a) * s - 5,
+        rot: Math.random() * 6, vr: (Math.random() - 0.5) * 0.4,
+        size: 5 + Math.random() * 6, c: CONF[Math.floor(Math.random() * CONF.length)]
+      });
+    }
+  }
+
+  function frame(t) {
+    ctx.clearRect(0, 0, W, H);
+    for (var i = 0; i < flowers.length; i++) drawFlower(flowers[i], t);
+    for (var j = confetti.length - 1; j >= 0; j--) {
+      var c = confetti[j];
+      c.vy += 0.18; c.vx *= 0.99; c.x += c.vx; c.y += c.vy; c.rot += c.vr;
+      if (c.y > H + 20) { confetti.splice(j, 1); continue; }
+      ctx.save(); ctx.translate(c.x, c.y); ctx.rotate(c.rot);
+      ctx.fillStyle = c.c; ctx.fillRect(-c.size / 2, -c.size / 4, c.size, c.size / 2);
+      ctx.restore();
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+
+  // Vườn hoa ban đầu dọc đáy màn hình
+  var count = Math.max(8, Math.round(W / 70));
+  for (var k = 0; k < count; k++) {
+    addFlower((k + 0.5) / count * W + (Math.random() - 0.5) * 40, H - 50 - Math.random() * 110, k * 110);
+  }
+
+  // Chạm nền để trồng hoa
+  document.addEventListener('pointerdown', function (e) {
+    if (e.target.closest('input, button, .candle, label')) return;
+    addFlower(e.clientX, e.clientY, 0);
+  });
+
+  // Tên người nhận
+  var nameEl = document.getElementById('name');
+  var whoEl = document.getElementById('who');
+  var msgEl = document.getElementById('msg');
+  function who() { return nameEl.value.trim() || 'chị Ngọc'; }
+  function refreshText() {
+    whoEl.textContent = who();
+    msgEl.textContent = 'Chúc ' + who() + ' một tuổi mới thật nhiều niềm vui, bình yên và những điều thuận lợi, thành công 8386 phát tài phát lộc chúc mừng năm mới. Sinh nhật dzui dzẻ!';
+  }
+  nameEl.addEventListener('input', refreshText);
+  refreshText();
+
+  // Bánh và nến
+  var flames = Array.prototype.slice.call(document.querySelectorAll('.flame'));
+  var status = document.getElementById('status');
+  var blessing = document.getElementById('blessing');
+  var blowBtn = document.getElementById('blow');
+  var done = false;
+
+  function lit() { return flames.filter(function (f) { return !f.classList.contains('out'); }).length; }
+
+  function update() {
+    var n = lit();
+    if (n > 0) {
+      status.textContent = 'Còn ' + n + ' ngọn nến đang cháy';
+      blowBtn.textContent = 'Thổi nến';
+      return;
+    }
+    status.textContent = 'Chúc mừng sinh nhật!';
+    blowBtn.textContent = 'Thắp lại nến';
+    if (!done) {
+      done = true;
+      blessing.hidden = false;
+      burst(W * 0.25, H * 0.35, 60); burst(W * 0.75, H * 0.35, 60); burst(W * 0.5, H * 0.25, 70);
+      for (var i = 0; i < 6; i++) addFlower(Math.random() * W, H * 0.4 + Math.random() * H * 0.3, i * 120);
+    }
+  }
+
+  document.querySelectorAll('.candle').forEach(function (c) {
+    c.addEventListener('click', function () {
+      var f = c.querySelector('.flame');
+      if (!f.classList.contains('out')) { f.classList.add('out'); update(); }
+    });
+  });
+
+  blowBtn.addEventListener('click', function () {
+    if (lit() === 0) {
+      flames.forEach(function (f) { f.classList.remove('out'); });
+      done = false; blessing.hidden = true; update();
+      return;
+    }
+    flames.forEach(function (f, i) {
+      setTimeout(function () { f.classList.add('out'); update(); }, i * 160);
+    });
+  });
+
+  // Lời chúc
+  document.querySelectorAll('.wish').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var open = b.classList.toggle('open');
+      b.setAttribute('aria-pressed', open ? 'true' : 'false');
+    });
+  });
+})();
+</script>
+
+</body></html>
